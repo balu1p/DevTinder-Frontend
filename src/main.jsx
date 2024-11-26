@@ -8,12 +8,17 @@ import '@fontsource/comic-neue/700.css';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './components/http';
+
 
 
 const AppLayout = () => {
   return (
     <div className='bg-black text-white min-h-screen'>
+      <QueryClientProvider client={queryClient}>
        <Outlet/>
+       </QueryClientProvider>
     </div>
    
   )
